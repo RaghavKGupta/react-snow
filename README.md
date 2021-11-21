@@ -1,4 +1,4 @@
-## This is a nextJS project for CWIG with Snow backend and USWDS bootstrapped. 
+## This is a nextJS project for CWIG with ServiceNow backend and USWDS bootstrapped. 
 
 ### Run the development server:
 
