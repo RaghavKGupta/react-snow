@@ -20,5 +20,5 @@ npm start
 ```
 
 ### Running the server on snow
-Please contact Raghav to make sure the server is running on servicenow or the API calls wont happen. Also, the credentials to be passed in on the config/index.js file. 
+Please contact Raghav to make sure the server is running on servicenow or the API calls wont happen.  
 Please request servicenow credentials from Dylan/Raghav and put them in the config/index.js file.  
