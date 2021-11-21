@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       <Header />
       <script src="../js/uswds.min.js"></script>
         <main className={styles.main}>
-          <div className={styles.container}>
+          <div class="grid-container">
           {children}
           </div>
         </main>

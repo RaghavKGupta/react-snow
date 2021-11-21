@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div>
+    <div class="grid-container">
       <header class="usa-header usa-header--basic">
    <div class="usa-nav-container">
       <div class="usa-navbar">
@@ -34,7 +34,7 @@ const Header = () => {
                </a>
             </li>
             <li class="usa-nav__primary-item">
-               <a href="javascript:void(0)" class="usa-nav__link">
+               <a href="/contact" class="usa-nav__link">
                <span>Contact Us</span>
                </a>
             </li>
