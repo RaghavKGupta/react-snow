@@ -21,7 +21,7 @@ const article = ({ article }) => {
       <h1>{article.result.name_of_page}</h1>
       <span class="usa-tag">{article.result.sys_updated_on}</span>
       
-      {ReactHtmlParser(c)}
+      {(c)}
       
       <br />
       <Link href='/'>Go Back</Link>
