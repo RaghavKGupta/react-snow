@@ -1155,7 +1155,7 @@ const getStaticPaths = async () => {
     }
   });
   const articles = await res.json();
-  const ids = articles.result.map(article => article.sys_id);
+  const ids = articles && articles.length > 0 && articles.result.map(article => article.sys_id);
   const paths = ids.map(id => ({
     params: {
       id: id.toString()
