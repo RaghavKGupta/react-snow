@@ -1,21 +1,19 @@
 import Link from 'next/link'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
-
 function display(accordion) {
         return <>
         <div key={accordion.index}>
         <h4 class="usa-accordion__heading">
         <button class="usa-accordion__button"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-controls={accordion.index}>
           {accordion.heading}
         </button>
       </h4>
-      <div id={accordion.index} class="usa-accordion__content usa-prose">
+      <div id={accordion.index} class="usa-accordion__content usa-prose" hidden>
       {ReactHtmlParser(accordion.body)}
       </div>
-
         </div> 
       </>
 }

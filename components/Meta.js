@@ -8,10 +8,11 @@ const Meta = ({ title, keywords, description }) => {
       <meta name='description' content={description} />
       <meta charSet='utf-8' />
       <link rel='icon' href='/favicon.ico' />
+      <script src="../js/uswds.min.js"></script>
       <script src="../js/uswds-init.min.js"></script>
     <link rel="stylesheet" href="../css/uswds.min.css" />
     <link rel="stylesheet" href="../cbxTest.scss"/>
-        <script src="../js/uswds.min.js" async></script>
+        
         <script src="https://kit.fontawesome.com/dad43c51a6.js" crossorigin="anonymous"></script>
     
       <title>{title}</title>

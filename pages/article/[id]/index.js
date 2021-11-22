@@ -5,11 +5,7 @@ import Meta from '../../../components/Meta'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import Accordion from '../../../components/Accordion';
 import Card from '../../../components/Card';
-
-
 const reactStringReplace = require('react-string-replace');
-
-
 
 const article = ({ article }) => {
   let a = article.result.body
@@ -25,7 +21,7 @@ const article = ({ article }) => {
       <h1>{article.result.name_of_page}</h1>
       <span class="usa-tag">{article.result.sys_updated_on}</span>
       
-      {c}
+      {ReactHtmlParser(c)}
       
       <br />
       <Link href='/'>Go Back</Link>
