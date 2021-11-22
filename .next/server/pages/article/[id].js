@@ -2834,11 +2834,8 @@ function makePublicRouterInstance(router) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return username; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return psd; });
-/* unused harmony export server */
-const dev = false;
 const username = 'adminraghav';
-const psd = 'pdipw';
-const server = dev ? 'http://localhost:3000' : 'https://yourwebsite.com';
+const psd = '';
 
 /***/ }),
 
