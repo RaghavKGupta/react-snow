@@ -19,7 +19,6 @@ export const getStaticProps = async () => {
       }
   })
   const articles = await res.json()
-  console.log(articles)
 
   return {
     props: {

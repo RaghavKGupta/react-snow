@@ -4,23 +4,29 @@ import { useRouter } from 'next/router'
 import Meta from '../../../components/Meta'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import Accordion from '../../../components/Accordion';
+import Card from '../../../components/Card';
+
+
+const reactStringReplace = require('react-string-replace');
+
 
 
 const article = ({ article }) => {
   let a = article.result.body
-  let b = a.substring(a.indexOf('#%')+2,a.indexOf('%#'))
-  let c = a.substring(a.indexOf('{{')+2,a.indexOf('}}'))
-  let d = a.substring(0,a.indexOf('{{'))
-  let e = a.substring(a.indexOf('}}')+2,a.length)
+  let b = (reactStringReplace(a, '#%accordion%#', (match, i) => (
+    <Accordion accordion={article.result}></Accordion>
+)))
+  let c = (reactStringReplace(b, '##%card%##', (match, i) => (
+    <Card card={article.result}></Card>
+)))
+
   return (
     <>
       <h1>{article.result.name_of_page}</h1>
       <span class="usa-tag">{article.result.sys_updated_on}</span>
-      {((b =="accordion")?<>
-      <div>{ReactHtmlParser(d)}</div>
-      <Accordion accordion={article.result}></Accordion>
-      <div>{ReactHtmlParser(e)}</div></>:<div>hello</div>)
-      }
+      
+      {c}
+      
       <br />
       <Link href='/'>Go Back</Link>
     </>
@@ -54,11 +60,11 @@ export const getStaticPaths = async () => {
 
   const articles = await res.json()
 
-  const ids = articles && articles.length >0 && articles.result.map((article) => article.sys_id)
-  const paths = ids && ids.length > 0 && ids.map((id) => ({ params: { id: id.toString() } }))
+  const ids = articles.result.map((article) => article.sys_id)
+  const paths = ids.map((id) => ({ params: { id: id.toString() } }))
 
   return {
-    paths:[],
+    paths,
     fallback: false,
   }
 }

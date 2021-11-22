@@ -4,23 +4,26 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 
 function display(accordion) {
         return <>
-            <h4 class="usa-accordion__heading">
+        <div key={accordion.index}>
+        <h4 class="usa-accordion__heading">
         <button class="usa-accordion__button"
           aria-expanded="true"
-          aria-controls='a1'>
+          aria-controls={accordion.index}>
           {accordion.heading}
         </button>
       </h4>
-      <div id="a1" class="usa-accordion__content usa-prose">
-      <p>{ReactHtmlParser(accordion.body)}</p>
-      </div> 
+      <div id={accordion.index} class="usa-accordion__content usa-prose">
+      {ReactHtmlParser(accordion.body)}
+      </div>
+
+        </div> 
       </>
 }
 
 function getList (accordion) {
 var b = []
     for (let index = 1; index <= accordion.number_of_accordions_needed; index++) {
-        b.push({index:index,heading:accordion[`accordion_${index}_heading`],body:accordion[`accordion_${index}_body`]})
+        b.push({index:`a${index}`,heading:accordion[`accordion_${index}_heading`],body:accordion[`accordion_${index}_body`]})
     }
 return b
 }
