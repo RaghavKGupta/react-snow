@@ -36,7 +36,6 @@ export const getStaticProps = async (context) => {
   })
 
   const article = await res.json()
-  console.log(article)
 
   return {
     props: {
@@ -55,11 +54,11 @@ export const getStaticPaths = async () => {
 
   const articles = await res.json()
 
-  const ids = articles.result.map((article) => article.sys_id)
-  const paths = ids.map((id) => ({ params: { id: id.toString() } }))
+  const ids = articles && articles.length >0 && articles.result.map((article) => article.sys_id)
+  const paths = ids && ids.length > 0 && ids.map((id) => ({ params: { id: id.toString() } }))
 
   return {
-    paths,
+    paths:[],
     fallback: false,
   }
 }
