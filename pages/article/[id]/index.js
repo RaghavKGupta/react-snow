@@ -9,19 +9,23 @@ const reactStringReplace = require('react-string-replace');
 
 const article = ({ article }) => {
   let a = article.result.body
-  let b = (reactStringReplace(a, '#%accordion%#', (match, i) => (
-    <Accordion accordion={article.result}></Accordion>
-)))
-  let c = (reactStringReplace(b, '##%card%##', (match, i) => (
-    <Card card={article.result}></Card>
-)))
+  let splitText = a.split(/(#.*#)/gm)
 
   return (
     <>
       <h1>{article.result.name_of_page}</h1>
       <span class="usa-tag">{article.result.sys_updated_on}</span>
-      
-      {(c)}
+
+     
+      {splitText.map(element => {
+      if(element.includes('#%accordion%#')){
+        return <Accordion accordion={article.result}></Accordion>
+        } else if (element.includes('##%card%##')){
+          return <Card card={article.result}></Card>
+        } else {
+          return ReactHtmlParser(element)
+        }
+      })}
       
       <br />
       <Link href='/'>Go Back</Link>
