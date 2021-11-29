@@ -4,7 +4,7 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 
 function display(card) {
         return <>
-            <div class="usa-card__container">
+            <div class="usa-card__container card__sizing">
       <header class="usa-card__header">
         <h2 class="usa-card__heading">{card.heading}</h2>
       </header>
@@ -31,7 +31,7 @@ return b
 const Card = ({ card }) => {
     var mapping = getList(card)
   return (
-    <div class="usa-card">
+    <div class="usa-card" style={{ height: 'auto' , display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
        {mapping.map(x => display(x))} 
     </div>
   )
