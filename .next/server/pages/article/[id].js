@@ -1226,7 +1226,8 @@ const getStaticProps = async context => {
   return {
     props: {
       article
-    }
+    },
+    revalidate: 5
   };
 };
 const getStaticPaths = async () => {
