@@ -828,7 +828,8 @@ const getStaticProps = async () => {
   return {
     props: {
       articles
-    }
+    },
+    revalidate: 3
   };
 };
 
