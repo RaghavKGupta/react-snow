@@ -9,11 +9,12 @@ const reactStringReplace = require('react-string-replace');
 
 const article = ({ article }) => {
   let a = article.result.body
-  let splitText = a.split(/(#.*#)/gm)
+  let splitText = a.split(/({#.*#})/gm)
 
   return (
     <>
       <h1>{article.result.name_of_page}</h1>
+
       <span class="usa-tag">{article.result.sys_updated_on}</span>
 
      
@@ -47,7 +48,7 @@ export const getStaticProps = async (context) => {
     props: {
       article,
     },
-    revalidate: 3,
+    revalidate: 5,
   }
 }
 
@@ -66,7 +67,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
