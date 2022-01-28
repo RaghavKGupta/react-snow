@@ -1,7 +1,10 @@
-const path = require("path");
 module.exports = {
-  webpack: (config, options) => {
-    config.resolve.modules.push(path.resolve("./"));
-    return config;
-  }
-}
+  async rewrites() {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder/',
+        },
+      ]
+    },
+};
