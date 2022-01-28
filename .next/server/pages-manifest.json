@@ -4,7 +4,7 @@
   "/about": "pages/about.html",
   "/article/[id]": "pages/article/[id].js",
   "/contact": "pages/contact.html",
-  "/": "pages/index.js",
+  "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/404": "pages/404.html"
 }
