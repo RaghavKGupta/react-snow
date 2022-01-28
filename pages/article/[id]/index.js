@@ -34,7 +34,7 @@ const article = ({ article }) => {
   )
 }
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const res = await fetch(`https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder/${context.params.id}`, {
     method: 'get',
     headers: {
@@ -47,27 +47,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       article,
-    },
-    revalidate: 5,
-  }
-}
-
-export const getStaticPaths = async () => {
-  const res = await fetch(`https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder`, {
-    method: 'get',
-    headers: {
-      'Authorization': 'Basic ' + btoa(`${username}:${psd}`)
-      }
-  })
-
-  const articles = await res.json()
-
-  const ids = articles.result.map((article) => article.sys_id)
-  const paths = ids.map((id) => ({ params: { id: id.toString() } }))
-
-  return {
-    paths,
-    fallback: false,
+    }
   }
 }
 

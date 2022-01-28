@@ -10,7 +10,7 @@ export default function Home({ articles }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   /*const res = await fetch(`${server}/api/articles`)*/
   const res = await fetch(`https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder`, {
     method: 'get',
@@ -23,7 +23,6 @@ export const getStaticProps = async () => {
   return {
     props: {
       articles,
-    },
-    revalidate: 3,
+    }
   }
 }
