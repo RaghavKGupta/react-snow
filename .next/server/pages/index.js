@@ -91,11 +91,16 @@ const ArticleList = ({ articles  })=>{
 
 
 function Home({ articles  }) {
-    return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
-        children: /*#__PURE__*/ jsx_runtime_.jsx(components_ArticleList, {
-            articles: articles.result
-        })
-    }));
+    try {
+        return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+            children: /*#__PURE__*/ jsx_runtime_.jsx(components_ArticleList, {
+                articles: articles.result
+            })
+        }));
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
 };
 const getServerSideProps = async ()=>{
     /*const res = await fetch(`${server}/api/articles`)*/ const res = await fetch(`https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder`, {

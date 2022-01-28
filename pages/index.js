@@ -3,11 +3,17 @@ import ArticleList from '../components/ArticleList'
 
 
 export default function Home({ articles }) {
-  return (
-    <div>
-      <ArticleList articles={articles.result} />
-    </div>
-  )
+  try {
+    return (
+      <div>
+        <ArticleList articles={articles.result} />
+      </div>
+    );
+  } catch (e) {
+    console.log(e)
+    return null;
+  }
+  
 }
 
 export const getServerSideProps = async () => {
