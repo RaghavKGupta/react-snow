@@ -1,4 +1,7 @@
+const path = require("path");
 module.exports = {
-  basePath: '',
-  trailingSlash: false,
+  webpack: (config, options) => {
+    config.resolve.modules.push(path.resolve("./"));
+    return config;
+  }
 }
