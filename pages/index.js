@@ -1,5 +1,6 @@
 import { username, psd } from '../config'
 import ArticleList from '../components/ArticleList'
+import btoa from 'btoa'
 
 
 export default function Home({ articles }) {
@@ -21,7 +22,7 @@ export const getServerSideProps = async () => {
   const res = await fetch(`https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder`, {
     method: 'get',
     headers: {
-        'Authorization': 'Basic ' + `${username}:${psd}`,
+        'Authorization': 'Basic ' + btoa(`${username}:${psd}`),
         "Access-Control-Allow-Origin": "*"
       }
   })
