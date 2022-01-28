@@ -5,6 +5,7 @@ import Meta from '../../../components/Meta'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import Accordion from '../../../components/Accordion';
 import Card from '../../../components/Card';
+import btoa from 'btoa'
 const reactStringReplace = require('react-string-replace');
 
 const article = ({ article }) => {
