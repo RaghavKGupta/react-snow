@@ -19,12 +19,8 @@ export default function Home({ articles }) {
 
 export const getServerSideProps = async () => {
   /*const res = await fetch(`${server}/api/articles`)*/
-  const res = await fetch(`https://dev69061.service-now.com/api/now/table/x_682526_page_bu_0_cwig_page_builder`, {
-    method: 'get',
-    headers: {
-        'Authorization': 'Basic ' + btoa(`${username}:${psd}`),
-        "Access-Control-Allow-Origin": "*"
-      }
+  const res = await fetch(`https://hh13cbx2ya.execute-api.us-east-1.amazonaws.com/test-raghav-snow/test-resource`, {
+    method: 'get'
   })
   const articles = await res.json()
 
